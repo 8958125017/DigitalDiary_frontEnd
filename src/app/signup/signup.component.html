@@ -1,0 +1,150 @@
+<div class="main-content">
+  <div class="container-fluid">
+      <div class="row">
+          <div class="col-md-8">
+              <div class="card">
+                  <div class="card-header card-header-danger">
+                      <h4 class="card-title">Create Admin</h4>
+                      <p class="card-category">Create your profile</p>
+                  </div>
+                  <div class="card-body">
+                      <form [formGroup]="signUpForm">
+                          <div class="row">
+                              <div class="col-md-5">
+                                 <mat-form-field class="example-full-width">
+                                    <input matInput placeholder="First Name" formControlName="firstName" [(ngModel)]="signUpDetails.firstName" required />
+                                  </mat-form-field>
+                                  <div class="small" *ngIf="!signUpForm.controls['firstName'].valid&&signUpForm.controls['firstName'].dirty">
+                                                <span *ngIf="signUpForm.controls['firstName'].errors['required']">First Name cannot be left blank</span>
+                                                <span *ngIf="signUpForm.controls['firstName'].errors['pattern']">First Name must contain 3-28 characters, only alphabets and no spaces</span>
+                                            </div>
+                              </div>
+                              <div class="col-md-3">
+                                  <mat-form-field class="example-full-width">
+                                    <input matInput placeholder="Last Name" formControlName="lastName" [(ngModel)]="signUpDetails.lastName">
+                                  </mat-form-field>
+                                   <div class="small" *ngIf="!signUpForm.controls['lastName'].valid&&signUpForm.controls['lastName'].dirty">
+                                                <span *ngIf="signUpForm.controls['lastName'].errors['required']">Last Name cannot be left blank</span>
+                                                <span *ngIf="signUpForm.controls['lastName'].errors['pattern']">Last Name must contain 3-28 characters, only alphabets and no spaces</span>
+                                            </div>
+                              </div>
+                              <div class="col-md-4">
+                                  <mat-form-field class="example-full-width">
+                                    <input matInput placeholder="Email address" type="email" formControlName="email" [(ngModel)]="signUpDetails.email">
+                                  </mat-form-field>
+                                  <div class="small" *ngIf="!signUpForm.controls['email'].valid&&signUpForm.controls['email'].dirty">
+                                                <span *ngIf="signUpForm.controls['email'].errors['required']">Email cannot be left blank</span>
+                                                <span *ngIf="signUpForm.controls['email'].errors['pattern']">Email address format is incorrect</span>
+                                            </div>
+                              </div>
+                          </div>
+                          <div class="row">
+                              <div class="col-md-6">
+                                <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="password" type="text" formControlName="password" [(ngModel)]="signUpDetails.password">
+                                </mat-form-field>
+                                <div class="small" *ngIf="!signUpForm.controls['password'].valid&&signUpForm.controls['password'].dirty">
+                                                <span *ngIf="signUpForm.controls['password'].errors['required']">Password cannot be left blank</span>
+                                                <span *ngIf="signUpForm.controls['password'].errors['minlength']">password must be atleast 6 characters</span>
+                                                <span *ngIf="signUpForm.controls['password'].errors['pattern']&&!signUpForm.controls['password'].errors['minlength']">Password must contain at least 6 characters including 1 uppercase and 1 lowercase letter, 1 special character and 1 number</span>
+                                            </div>
+                              </div>
+                              <div class="col-md-6">
+                                <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="confirm password" type="text" formControlName="confirmPassword" [(ngModel)]="signUpDetails.confirmPassword">
+                                </mat-form-field>
+                                 <div class="small" *ngIf="!signUpForm.controls['confirmPassword'].valid&&signUpForm.controls['confirmPassword'].dirty">
+                                            </div>
+                                            <div *ngIf="signUpForm.controls['confirmPassword'].dirty&&signUpForm.hasError('mismatchedPasswords')"><span class="small"> Passwords do not match.</span></div>
+                              </div>
+                          </div>
+                           <div class="row">
+                              <div class="col-md-12">
+                                <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="Contact No" type="text" formControlName="contactNo" [(ngModel)]="signUpDetails.contactNo">
+                                </mat-form-field>
+                              </div>
+                          </div>
+                         <div class="row">
+                              <div class="col-md-6">
+                                <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="Addess Line 1" type="text" formControlName="line1" [(ngModel)]="signUpDetails.address.line1">
+                                </mat-form-field>
+                              </div>
+                              <div class="col-md-6">
+                                <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="Addess Line 2" type="text" formControlName="line2" [(ngModel)]="signUpDetails.address.line2">
+                                </mat-form-field>
+                              </div>
+                          </div>
+                          <div class="row">
+                              <div class="col-md-4">
+                                <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="City" type="text" formControlName="city" [(ngModel)]="signUpDetails.address.city">
+                                </mat-form-field>
+                              </div>
+                              <div class="col-md-4">
+                                <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="State" type="text" formControlName="state" [(ngModel)]="signUpDetails.address.state">
+                                </mat-form-field>
+                              </div>
+                              <div class="col-md-4">
+                                <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="Country" type="text" formControlName="country" [(ngModel)]="signUpDetails.address.country">
+                                </mat-form-field>
+                              </div>
+                          </div>
+                           <div class="row">
+                              <div class="col-md-12">
+                                <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="PIN" type="text" formControlName="pin" [(ngModel)]="signUpDetails.address.pin">
+                                </mat-form-field>
+                              </div>
+                          </div>
+                          <div class="row">
+                              <div class="col-md-6">
+                                <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="designation" type="text" formControlName="designation" [(ngModel)]="signUpDetails.designation">
+                                </mat-form-field>
+                              </div>
+                              <div class="col-md-6">
+                                <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="department" type="text" formControlName="department" [(ngModel)]="signUpDetails.department">
+                                </mat-form-field>
+                              </div>
+                          </div>
+                          <div class="row">
+                              <div class="col-md-6">
+                                <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="dob" type="text" formControlName="dob" [(ngModel)]="signUpDetails.dob">
+                                </mat-form-field>
+                              </div>
+                              <div class="col-md-6">
+                                <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="doj" type="text" formControlName="doj" [(ngModel)]="signUpDetails.doj">
+                                </mat-form-field>
+                              </div>
+                          </div>
+                          <div class="row">
+                              <div class="col-md-6">
+                                <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="Role" type="text" formControlName="role" [(ngModel)]="signUpDetails.role">
+                                </mat-form-field>
+                              </div>
+                               <div class="col-md-6">
+                                <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="Marks" type="number" formControlName="marks" [(ngModel)]="signUpDetails.marks">
+                                </mat-form-field>
+                              </div>
+                          </div>
+                        
+                     
+                          <button mat-raised-button type="submit" class="btn btn-danger pull-right" (click)="signUp(signUpForm.value)" [disabled]="!signUpForm.valid">Sign Up</button>
+                          <div class="clearfix"></div>
+                      </form>
+                  </div>
+              </div>
+          </div>
+          
+  </div>
+</div>
